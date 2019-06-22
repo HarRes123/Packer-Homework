@@ -7,14 +7,50 @@
 //
 
 import UIKit
+import FirebaseUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FUIAuthDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
+    @IBAction func loginTapped(_ sender: Any) {
+        
+        // Create default Auth UI
+        let authUI = FUIAuth.defaultAuthUI()
+        
+        // Check that it isn't nil
+        guard authUI != nil else {
+            return
+        }
+        
+        // Set delegate and specify sign in options
+        authUI?.delegate = self
+        authUI?.providers = [FUIEmailAuth()] //[FUIGoogleAuth()]
+        
+        
+        // Get the auth view controller and present it
+        let authViewController = authUI!.authViewController()
+        present(authViewController, animated: true, completion: nil)
+        }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
 }
 
+
+extension ViewController {
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        
+        // Check for error
+        guard error == nil else {
+            return
+        }
+        
+        // Transition to home
+        performSegue(withIdentifier: "goHome", sender: self)
+    }
+    
+}
