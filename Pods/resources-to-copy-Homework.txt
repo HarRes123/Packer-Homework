@@ -1,4 +1,0 @@
-/Users/haresnick/Library/Developer/Xcode/DerivedData/Homework-dforseayeucgcfepbfntsnxggqad/Build/Products/Debug-iphoneos/FirebaseUI/FirebaseAuthUI.bundle
-/Users/haresnick/Library/Developer/Xcode/DerivedData/Homework-dforseayeucgcfepbfntsnxggqad/Build/Products/Debug-iphoneos/FirebaseUI/FirebaseEmailAuthUI.bundle
-/Users/haresnick/Library/Developer/Xcode/DerivedData/Homework-dforseayeucgcfepbfntsnxggqad/Build/Products/Debug-iphoneos/FirebaseUI/FirebaseGoogleAuthUI.bundle
-/Users/haresnick/Library/CloudStorage/iCloud Drive/Desktop/Packer-Homework/Pods/GoogleSignIn/Resources/GoogleSignIn.bundle

@@ -107,6 +107,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn8-Hq-9AM">
                                         <rect key="frame" x="170.5" y="242" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButton:" destination="mtE-Lo-D4S" eventType="touchUpInside" id="13t-49-pFh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,6 +141,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="94i-v6-Msz"/>
                     </view>
+                    <connections>
+                        <outlet property="firstQuestion" destination="5Ss-Yg-VFK" id="TqI-C2-Tua"/>
+                        <outlet property="labelMessage" destination="iJp-j4-CHh" id="eqO-ed-bmE"/>
+                        <outlet property="secondQuestion" destination="9Xx-gm-06o" id="G9w-bn-fyu"/>
+                        <outlet property="thirdQuestion" destination="jyA-AG-W1b" id="N6u-2R-L4u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muh-ur-ulh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
