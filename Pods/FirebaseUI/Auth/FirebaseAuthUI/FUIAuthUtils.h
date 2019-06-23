@@ -24,7 +24,7 @@ extern NSString * _Nullable const FUIAuthBundleName;
  */
 @interface FUIAuthUtils : NSObject
 
-- (instancetype _Nullable )init NS_UNAVAILABLE;
+- (instancetype _Nonnull )init NS_UNAVAILABLE;
 
 /** @fn bundleNamed:
     @brief Gets the framework bundle for specified name
