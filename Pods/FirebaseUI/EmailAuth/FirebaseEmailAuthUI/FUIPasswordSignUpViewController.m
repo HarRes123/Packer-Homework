@@ -155,7 +155,7 @@ static const CGFloat kTextFieldRightViewSize = 36.0f;
     FIRAuthCredential *credential =
         [FIREmailAuthProvider credentialWithEmail:email password:password];
     [self.auth.currentUser
-      linkAndRetrieveDataWithCredential:credential
+      linkWithCredential:credential
                              completion:^(FIRAuthDataResult *_Nullable authResult,
                                           NSError * _Nullable error) {
       if (error) {

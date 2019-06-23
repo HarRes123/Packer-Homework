@@ -314,14 +314,14 @@ static NSString *const kEmailLinkSignInLinkingCredentialKey = @"FIRAuthEmailLink
                            presentingViewController:nil];
     };
 
-    [self.authUI.auth signInAndRetrieveDataWithCredential:emailLinkCredential
+    [self.authUI.auth signInWithCredential:emailLinkCredential
                                                completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
       if (error) {
         [FUIAuthBaseViewController showAlertWithMessage:error.description];
         return;
       }
 
-      [authResult.user linkAndRetrieveDataWithCredential:unverifiedProviderCredential completion:completeSignInBlock];
+      [authResult.user linkWithCredential:unverifiedProviderCredential completion:completeSignInBlock];
     }];
   }
 }
@@ -357,7 +357,7 @@ static NSString *const kEmailLinkSignInLinkingCredentialKey = @"FIRAuthEmailLink
     };
 
     [self.authUI.auth.currentUser
-     linkAndRetrieveDataWithCredential:credential
+     linkWithCredential:credential
      completion:^(FIRAuthDataResult *_Nullable authResult,
                   NSError *_Nullable error) {
        if (error) {
@@ -418,7 +418,7 @@ static NSString *const kEmailLinkSignInLinkingCredentialKey = @"FIRAuthEmailLink
                          presentingViewController:nil];
   };
 
-  [self.authUI.auth signInAndRetrieveDataWithCredential:credential completion:completeSignInBlock];
+  [self.authUI.auth signInWithCredential:credential completion:completeSignInBlock];
 }
 
 - (void)handleDifferentDevice {
@@ -487,7 +487,7 @@ static NSString *const kEmailLinkSignInLinkingCredentialKey = @"FIRAuthEmailLink
   // currently signed in user on the default auth instance.
   FIRAuth *tempAuth = [FIRAuth authWithApp:tempApp];
 
-  [self.authUI.auth fetchProvidersForEmail:emailHint
+  [self.authUI.auth fetchSignInMethodsForEmail:emailHint
                                 completion:^(NSArray<NSString *> *_Nullable providers,
                                              NSError *_Nullable error) {
     if (error) {
@@ -555,7 +555,7 @@ static NSString *const kEmailLinkSignInLinkingCredentialKey = @"FIRAuthEmailLink
               return;
             }
 
-            [tempAuth signInAndRetrieveDataWithCredential:credential
+            [tempAuth signInWithCredential:credential
                                                completion:^(FIRAuthDataResult *_Nullable authResult,
                                                             NSError *_Nullable error) {
               if (error) {
@@ -743,7 +743,7 @@ static NSString *const kEmailLinkSignInLinkingCredentialKey = @"FIRAuthEmailLink
           return;
         }
 
-        [self.authUI.auth signInAndRetrieveDataWithCredential:credential
+        [self.authUI.auth signInWithCredential:credential
                                             completion:^(FIRAuthDataResult*_Nullable authResult,
                                                          NSError *_Nullable error) {
           if (error) {
@@ -755,7 +755,7 @@ static NSString *const kEmailLinkSignInLinkingCredentialKey = @"FIRAuthEmailLink
           }
 
           FIRUser *user = authResult.user;
-          [user linkAndRetrieveDataWithCredential:newCredential
+          [user linkWithCredential:newCredential
                                        completion:^(FIRAuthDataResult *_Nullable authResult,
                                                     NSError *_Nullable error) {
             if (result) {

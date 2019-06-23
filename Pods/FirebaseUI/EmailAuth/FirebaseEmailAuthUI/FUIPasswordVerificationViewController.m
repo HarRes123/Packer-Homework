@@ -153,7 +153,7 @@ static NSString *const kCellReuseIdentifier = @"cellReuseIdentifier";
 
   FIRAuthCredential *credential =
       [FIREmailAuthProvider credentialWithEmail:_email password:password];
-  [self.auth signInAndRetrieveDataWithCredential:credential
+  [self.auth signInWithCredential:credential
                                       completion:^(FIRAuthDataResult *_Nullable authResult,
                                                    NSError *_Nullable error) {
     if (error) {
@@ -163,7 +163,7 @@ static NSString *const kCellReuseIdentifier = @"cellReuseIdentifier";
       return;
     }
 
-    [authResult.user linkAndRetrieveDataWithCredential:self->_newCredential
+    [authResult.user linkWithCredential:self->_newCredential
                                             completion:^(FIRAuthDataResult *_Nullable authResult,
                                                          NSError *_Nullable error) {
       [self decrementActivity];

@@ -8,12 +8,15 @@
 
 import UIKit
 import FirebaseUI
+import GoogleSignIn
 
 class ViewController: UIViewController, FUIAuthDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
+    
     @IBAction func loginTapped(_ sender: Any) {
         
         // Create default Auth UI
@@ -26,11 +29,12 @@ class ViewController: UIViewController, FUIAuthDelegate {
         
         // Set delegate and specify sign in options
         authUI?.delegate = self
-        authUI?.providers = [FUIEmailAuth()] //[FUIGoogleAuth()]
+        authUI?.providers = [FUIEmailAuth(), FUIGoogleAuth()]
         
         
         // Get the auth view controller and present it
         let authViewController = authUI!.authViewController()
+   
         present(authViewController, animated: true, completion: nil)
         }
     
@@ -54,3 +58,4 @@ extension ViewController {
     }
     
 }
+

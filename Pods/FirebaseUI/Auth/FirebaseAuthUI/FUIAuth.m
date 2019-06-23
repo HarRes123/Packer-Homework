@@ -197,7 +197,7 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
                                   credential:credential
                               resultCallback:result];
     } else {
-      [self.auth signInAndRetrieveDataWithCredential:credential
+      [self.auth signInWithCredential:credential
                                           completion:^(FIRAuthDataResult *_Nullable authResult,
                                                        NSError *_Nullable error) {
         if (error && error.code == FIRAuthErrorCodeAccountExistsWithDifferentCredential) {
@@ -230,7 +230,7 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
                               credential:(nullable FIRAuthCredential *)credential
                           resultCallback:(nullable FIRAuthResultCallback)callback {
   [self.auth.currentUser
-      linkAndRetrieveDataWithCredential:credential
+      linkWithCredential:credential
                              completion:^(FIRAuthDataResult *_Nullable authResult,
                                           NSError * _Nullable error) {
     if (error) {
@@ -283,7 +283,7 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
               return;
             }
 
-            [authResult.user linkAndRetrieveDataWithCredential:credential
+            [authResult.user linkWithCredential:credential
                                                     completion:^(FIRAuthDataResult *authResult,
                                                                  NSError *linkError) {
               if (linkError) {
