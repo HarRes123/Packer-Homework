@@ -29,17 +29,25 @@ class SurveyViewController: UIViewController {
     
     func addResponse() {
         
-        let key = refResponse.childByAutoId().key
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "MMMM dd, yyyy -- h:mm a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        
+        let dateString = formatter.string(from: Date())
+        
+        let key = (Auth.auth().currentUser?.displayName)! + ": " + dateString
         
         let responses = [
-                         "displayName": Auth.auth().currentUser?.displayName,
                          "emailAddress": Auth.auth().currentUser?.email,
                          "firstQuestion": firstQuestion.text! as String,
                          "secondQuestion": secondQuestion.text! as String,
                          "thirdQuestion": thirdQuestion.text! as String
         ]
         
-        refResponse.child(key!).setValue(responses)
+        refResponse.child(key).setValue(responses)
         labelMessage.text = "Added"
     }
 
