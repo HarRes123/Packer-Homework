@@ -134,6 +134,7 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
   }
   authViewController = [[UINavigationController alloc] initWithRootViewController:controller];
 
+
   return authViewController;
 }
 

@@ -23,7 +23,7 @@ class SurveyViewController: UIViewController {
         
         refResponse = Database.database().reference().child("response")
         labelMessage.text = ""
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -53,6 +53,7 @@ class SurveyViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
          self.navigationController?.isNavigationBarHidden = false
+        
     }
     
     @IBAction func saveButton(_ sender: UIButton) {

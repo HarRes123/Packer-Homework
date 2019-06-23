@@ -42,20 +42,3 @@ class ViewController: UIViewController, FUIAuthDelegate {
         self.navigationController?.isNavigationBarHidden = true
     }
 }
-
-
-extension ViewController {
-    
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        
-        // Check for error
-        guard error == nil else {
-            return
-        }
-        
-        // Transition to home
-        performSegue(withIdentifier: "goHome", sender: self)
-    }
-    
-}
-
