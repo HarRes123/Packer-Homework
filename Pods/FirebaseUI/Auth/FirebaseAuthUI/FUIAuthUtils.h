@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 
 /* Name of the FirebaseAuthUI resource bundle. */
-extern NSString * _Nullable const FUIAuthBundleName;
+extern NSString * _Nonnull const FUIAuthBundleName;
 
 /** @class FUIAuthUtils
     @brief Provides utility methods for Firebase Auth UI.

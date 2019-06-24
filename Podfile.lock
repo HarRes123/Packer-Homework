@@ -1,4 +1,12 @@
 PODS:
+  - FBSDKCoreKit (5.1.0):
+    - FBSDKCoreKit/Basics (= 5.1.0)
+    - FBSDKCoreKit/Core (= 5.1.0)
+  - FBSDKCoreKit/Basics (5.1.0)
+  - FBSDKCoreKit/Core (5.1.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.1.0):
+    - FBSDKCoreKit (~> 5.0)
   - Firebase/Auth (6.0.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.0.0)
@@ -41,6 +49,9 @@ PODS:
     - Firebase/Auth (~> 6.0)
     - GoogleUtilities/UserDefaults
   - FirebaseUI/Email (7.0.0):
+    - FirebaseUI/Auth
+  - FirebaseUI/Facebook (7.0.0):
+    - FBSDKLoginKit (~> 5.0)
     - FirebaseUI/Auth
   - FirebaseUI/Google (7.0.0):
     - FirebaseUI/Auth
@@ -90,15 +101,19 @@ PODS:
   - nanopb/encode (0.3.901)
 
 DEPENDENCIES:
+  - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - FirebaseUI/Auth
   - FirebaseUI/Email
+  - FirebaseUI/Facebook
   - FirebaseUI/Google
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - FBSDKCoreKit
+    - FBSDKLoginKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -116,6 +131,8 @@ SPEC REPOS:
     - nanopb
 
 SPEC CHECKSUMS:
+  FBSDKCoreKit: 28abd87d7828faff0d75fda2ada31d279ec5eaba
+  FBSDKLoginKit: bf3d18167d26864e96bde4121c28823359325384
   Firebase: fa80b9d987ca014a1ba9357496ef2a0178b28b12
   FirebaseAnalytics: 1743c5f4de3687d0745709dfdc4b1dea1484f44c
   FirebaseAuth: efc72b0f6fe075d2a6de8d81a6d9de83ef2b47eb
@@ -132,6 +149,6 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: 625e44bcdb49d8049576a338b4fa10dc04d7b397
+PODFILE CHECKSUM: fa1031b31822061383a95deee90909991e0eec36
 
 COCOAPODS: 1.7.2

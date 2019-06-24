@@ -5,5 +5,7 @@ target 'Homework' do
 	pod 'FirebaseUI/Auth'
 	pod 'FirebaseUI/Google'
 	pod 'FirebaseUI/Email'
+	pod 'FirebaseUI/Facebook'
 	pod 'Firebase/Database'
+	pod 'FBSDKLoginKit'
 end

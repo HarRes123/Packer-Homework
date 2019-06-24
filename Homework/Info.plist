@@ -24,11 +24,16 @@
 			<key>CFBundleURLName</key>
 			<string></string>
 			<key>CFBundleURLSchemes</key>
-			<array>
+            <array>
+                <string>fb2267861896623182</string>
 				<string>com.googleusercontent.apps.22155770975-ls467b9l3ac56ngnigt6clkraap0hg41</string>
 			</array>
 		</dict>
 	</array>
+    <key>FacebookAppID</key>
+    <string>2267861896623182</string>
+    <key>FacebookDisplayName</key>
+    <string>Packer Homework</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>

@@ -180,7 +180,7 @@ NS_ASSUME_NONNULL_BEGIN
       return;
     }
     [self.delegate.auth.currentUser
-       reauthenticateWithCredential:credential
+        reauthenticateWithCredential:credential
                                          completion:^(FIRAuthDataResult *_Nullable authResult,
                                                       NSError *_Nullable reauthError) {
       [self.delegate decrementActivity];

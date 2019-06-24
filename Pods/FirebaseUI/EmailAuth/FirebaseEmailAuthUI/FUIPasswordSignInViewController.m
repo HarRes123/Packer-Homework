@@ -179,7 +179,7 @@ static NSString *const kCellReuseIdentifier = @"cellReuseIdentifier";
   // Check for the presence of an anonymous user and whether automatic upgrade is enabled.
   if (self.auth.currentUser.isAnonymous && self.authUI.shouldAutoUpgradeAnonymousUsers) {
     [self.auth.currentUser
-         linkWithCredential:credential
+        linkWithCredential:credential
                                completion:^(FIRAuthDataResult *_Nullable authResult,
                                             NSError *_Nullable error) {
       if (error) {

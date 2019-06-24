@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6239978422C09BFF00DE50CC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6239978322C09BFF00DE50CC /* Default-568h@2x.png */; };
 		623DB2E822BEF33D0017B73E /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623DB2E722BEF33D0017B73E /* SurveyViewController.swift */; };
 		627372C422BEC940004BAD8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 627372C322BEC940004BAD8D /* GoogleService-Info.plist */; };
 		627372C522BEC940004BAD8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 627372C322BEC940004BAD8D /* GoogleService-Info.plist */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		210B2F65135A952B872DE765 /* Pods-Homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework.release.xcconfig"; path = "Target Support Files/Pods-Homework/Pods-Homework.release.xcconfig"; sourceTree = "<group>"; };
+		6239978322C09BFF00DE50CC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		623DB2E722BEF33D0017B73E /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		627372C322BEC940004BAD8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		62C0A42922BEE9A70022F5CD /* packer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = packer.png; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		62C24FF022BEC87C0018CA20 = {
 			isa = PBXGroup;
 			children = (
+				6239978322C09BFF00DE50CC /* Default-568h@2x.png */,
 				62C24FFB22BEC87C0018CA20 /* Homework */,
 				62C2501022BEC8870018CA20 /* HomeworkTests */,
 				62C2501B22BEC8870018CA20 /* HomeworkUITests */,
@@ -272,6 +275,7 @@
 				627372C422BEC940004BAD8D /* GoogleService-Info.plist in Resources */,
 				62C2500422BEC8860018CA20 /* Assets.xcassets in Resources */,
 				62C2500222BEC87C0018CA20 /* Main.storyboard in Resources */,
+				6239978422C09BFF00DE50CC /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +473,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -523,6 +528,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
