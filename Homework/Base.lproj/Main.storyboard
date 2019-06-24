@@ -124,6 +124,7 @@
                                     <constraint firstItem="9Xx-gm-06o" firstAttribute="leading" secondItem="iJp-j4-CHh" secondAttribute="leading" constant="-7" id="JvB-mW-Gcn"/>
                                     <constraint firstItem="9Xx-gm-06o" firstAttribute="leading" secondItem="gaX-7j-zY6" secondAttribute="leading" constant="13" id="bUA-hw-mVR"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iJp-j4-CHh" secondAttribute="trailing" constant="20" symbolic="YES" id="eDW-uV-2Wb"/>
+                                    <constraint firstAttribute="width" secondItem="gaX-7j-zY6" secondAttribute="height" multiplier="125:117" id="fLc-0y-fZ8"/>
                                     <constraint firstItem="9Xx-gm-06o" firstAttribute="trailing" secondItem="5Ss-Yg-VFK" secondAttribute="trailing" id="iWI-ND-HA6"/>
                                     <constraint firstItem="cn8-Hq-9AM" firstAttribute="centerX" secondItem="gaX-7j-zY6" secondAttribute="centerX" id="kgW-hX-O1f"/>
                                     <constraint firstItem="iJp-j4-CHh" firstAttribute="top" secondItem="jyA-AG-W1b" secondAttribute="bottom" constant="86" id="sB1-fj-Shm"/>
