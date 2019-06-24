@@ -34,6 +34,10 @@ class ViewController: UIViewController, FUIAuthDelegate {
         // Get the auth view controller and present it
         let authViewController = authUI!.authViewController()
    
+        let backItem = UIBarButtonItem()
+        backItem.title = "Sign Out"
+        navigationItem.backBarButtonItem = backItem
+        
         present(authViewController, animated: true, completion: nil)
         }
     
