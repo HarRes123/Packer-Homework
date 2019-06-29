@@ -15,6 +15,7 @@ class SurveyViewController: UIViewController {
     @IBOutlet weak var secondQuestion: UITextField!
     @IBOutlet weak var thirdQuestion: UITextField!
     @IBOutlet weak var labelMessage: UILabel!
+    @IBOutlet weak var titleLabelText: UILabel!
     
     var refResponse: DatabaseReference!
     
@@ -23,6 +24,7 @@ class SurveyViewController: UIViewController {
         
         refResponse = Database.database().reference().child("response")
         labelMessage.text = ""
+        titleLabelText.text = "\nPlease Answer the Following Questions"
 
         // Do any additional setup after loading the view.
     }
