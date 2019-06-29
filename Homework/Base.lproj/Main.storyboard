@@ -78,11 +78,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="XSx-gU-05o">
-                                <rect key="frame" x="16" y="96" width="382" height="354"/>
+                                <rect key="frame" x="16" y="96" width="382" height="288"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acU-rE-QQn">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acU-rE-QQn">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -111,12 +111,6 @@
                                             <action selector="saveButton:" destination="OgF-UH-rpp" eventType="touchUpInside" id="1hh-Ef-jGI"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlm-ug-l8B">
-                                        <rect key="frame" x="0.0" y="330" width="382" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="1" green="0.37254902719999999" blue="0.35686275360000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -130,7 +124,6 @@
                     </view>
                     <connections>
                         <outlet property="firstQuestion" destination="De5-7i-dpM" id="knx-FN-itK"/>
-                        <outlet property="labelMessage" destination="Nlm-ug-l8B" id="2td-Rs-vqF"/>
                         <outlet property="secondQuestion" destination="1OH-ru-zGk" id="EN2-yz-YJ3"/>
                         <outlet property="thirdQuestion" destination="0Lq-2I-hnm" id="Zzj-b1-M2L"/>
                         <outlet property="titleLabelText" destination="acU-rE-QQn" id="OVp-iT-xNp"/>

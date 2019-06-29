@@ -9,12 +9,11 @@
 import UIKit
 import Firebase
 
-class SurveyViewController: UIViewController {
+class SurveyViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var firstQuestion: UITextField!
     @IBOutlet weak var secondQuestion: UITextField!
     @IBOutlet weak var thirdQuestion: UITextField!
-    @IBOutlet weak var labelMessage: UILabel!
     @IBOutlet weak var titleLabelText: UILabel!
     
     var refResponse: DatabaseReference!
@@ -22,12 +21,50 @@ class SurveyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        firstQuestion.delegate = self
+        secondQuestion.delegate = self
+        thirdQuestion.delegate = self
+
+        firstQuestion.tag = 0
+        secondQuestion.tag = 1
+        thirdQuestion.tag = 2
+
         refResponse = Database.database().reference().child("response")
-        labelMessage.text = ""
-        titleLabelText.text = "\nPlease Answer the Following Questions"
+        titleLabelText.text = "\nPlease Answer the \nFollowing Questions"
 
         // Do any additional setup after loading the view.
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+            var alertNotification = ""
+            var message = ""
+            
+            if firstQuestion.text != "" && secondQuestion.text != "" && thirdQuestion.text != "" {
+                alertNotification = "Your Response Has Been Saved!"
+                message = "Thank you for your input!"
+                addResponse()
+            } else {
+                
+                alertNotification = "You Response has not Been Saved"
+                message = "Please complete all fields"
+            }
+            
+            let alert = UIAlertController(title: alertNotification, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+        }
+        // Do not add a line break
+        return false
+    }
+    
     
     func addResponse() {
         
@@ -50,7 +87,9 @@ class SurveyViewController: UIViewController {
         ]
         
         refResponse.child(key).setValue(responses)
-        labelMessage.text = "Added"
+        firstQuestion.text = ""
+        secondQuestion.text = ""
+        thirdQuestion.text = ""
     }
 
     override func viewWillAppear(_ animated: Bool) {
