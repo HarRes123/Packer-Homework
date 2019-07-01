@@ -15,8 +15,17 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var secondQuestion: UITextField!
     @IBOutlet weak var thirdQuestion: UITextField!
     @IBOutlet weak var titleLabelText: UILabel!
+    @IBOutlet weak var saveOutlet: UIButton!
+    
+    @IBOutlet weak var q1Label: UILabel!
+    @IBOutlet weak var q2Label: UILabel!
+    @IBOutlet weak var q3Label: UILabel!
+    
+    @IBOutlet weak var stackView: UIStackView!
     
     var refResponse: DatabaseReference!
+    var alertNotification = ""
+    var message = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +34,19 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         secondQuestion.delegate = self
         thirdQuestion.delegate = self
 
-        firstQuestion.tag = 0
-        secondQuestion.tag = 1
-        thirdQuestion.tag = 2
+        saveOutlet.layer.cornerRadius = 8
+        
+        firstQuestion.enablesReturnKeyAutomatically = false
+        secondQuestion.enablesReturnKeyAutomatically = false
+        thirdQuestion.enablesReturnKeyAutomatically = false
+        
+        stackView.setCustomSpacing(64.0, after: titleLabelText)
+        stackView.setCustomSpacing(12.0, after: q1Label)
+        stackView.setCustomSpacing(64.0, after: firstQuestion)
+        stackView.setCustomSpacing(12.0, after: q2Label)
+        stackView.setCustomSpacing(64.0, after: secondQuestion)
+        stackView.setCustomSpacing(12.0, after: q3Label)
+        stackView.setCustomSpacing(64.0, after: thirdQuestion)
 
         refResponse = Database.database().reference().child("response")
         titleLabelText.text = "\nPlease Answer the \nFollowing Questions"
@@ -35,34 +54,27 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        // Try to find next responder
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            nextField.becomeFirstResponder()
+    func presentPopOver() {
+        
+        if firstQuestion.text != "" && secondQuestion.text != "" && thirdQuestion.text != "" {
+            alertNotification = "Your Response Has Been Saved!"
+            message = "Thank you for your input!"
+            addResponse()
         } else {
-            // Not found, so remove keyboard.
-            textField.resignFirstResponder()
-            var alertNotification = ""
-            var message = ""
             
-            if firstQuestion.text != "" && secondQuestion.text != "" && thirdQuestion.text != "" {
-                alertNotification = "Your Response Has Been Saved!"
-                message = "Thank you for your input!"
-                addResponse()
-            } else {
-                
-                alertNotification = "You Response has not Been Saved"
-                message = "Please complete all fields"
-            }
-            
-            let alert = UIAlertController(title: alertNotification, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true)
-            
+            alertNotification = "You Response has not Been Saved"
+            message = "Please complete all fields"
         }
-        // Do not add a line break
-        return false
+        
+        let alert = UIAlertController(title: alertNotification, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
     }
     
     
@@ -97,7 +109,8 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
-        addResponse()
+        
+        presentPopOver()
     }
     
     /*

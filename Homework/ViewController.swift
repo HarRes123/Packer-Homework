@@ -11,9 +11,12 @@ import FirebaseUI
 import GoogleSignIn
 
 class ViewController: UIViewController, FUIAuthDelegate {
-
+    @IBOutlet weak var logInOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logInOutlet.layer.cornerRadius = 8
         
     }
     
@@ -39,6 +42,7 @@ class ViewController: UIViewController, FUIAuthDelegate {
         navigationItem.backBarButtonItem = backItem
         
         present(authViewController, animated: true, completion: nil)
+        
         }
     
     override func viewWillAppear(_ animated: Bool) {
