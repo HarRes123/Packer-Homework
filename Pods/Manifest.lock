@@ -1,4 +1,5 @@
 PODS:
+  - DLRadioButton (1.4.12)
   - FBSDKCoreKit (5.1.0):
     - FBSDKCoreKit/Basics (= 5.1.0)
     - FBSDKCoreKit/Core (= 5.1.0)
@@ -101,6 +102,7 @@ PODS:
   - nanopb/encode (0.3.901)
 
 DEPENDENCIES:
+  - DLRadioButton (~> 1.4)
   - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Core
@@ -112,6 +114,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - DLRadioButton
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -131,6 +134,7 @@ SPEC REPOS:
     - nanopb
 
 SPEC CHECKSUMS:
+  DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
   FBSDKCoreKit: 28abd87d7828faff0d75fda2ada31d279ec5eaba
   FBSDKLoginKit: bf3d18167d26864e96bde4121c28823359325384
   Firebase: fa80b9d987ca014a1ba9357496ef2a0178b28b12
@@ -149,6 +153,6 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: fa1031b31822061383a95deee90909991e0eec36
+PODFILE CHECKSUM: c7707f7969d19df86b0020ab09ee6954ed97b9f9
 
 COCOAPODS: 1.7.2

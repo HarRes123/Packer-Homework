@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import DLRadioButton
 
 class SurveyViewController: UIViewController, UITextFieldDelegate {
 
@@ -21,11 +22,20 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var q2Label: UILabel!
     @IBOutlet weak var q3Label: UILabel!
     
+    @IBOutlet weak var button1Outlet: DLRadioButton!
+    @IBOutlet weak var button2Outlet: DLRadioButton!
+    @IBOutlet weak var button3Outlet: DLRadioButton!
+    @IBOutlet weak var button4Outlet: DLRadioButton!
+    @IBOutlet weak var button5Outlet: DLRadioButton!
+    
+    @IBOutlet weak var buttonView: UIView!
+    
     @IBOutlet weak var stackView: UIStackView!
     
     var refResponse: DatabaseReference!
     var alertNotification = ""
     var message = ""
+    var buttonResponse = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +54,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         stackView.setCustomSpacing(12.0, after: q1Label)
         stackView.setCustomSpacing(64.0, after: firstQuestion)
         stackView.setCustomSpacing(12.0, after: q2Label)
-        stackView.setCustomSpacing(64.0, after: secondQuestion)
+        stackView.setCustomSpacing(64.0, after: buttonView)
         stackView.setCustomSpacing(12.0, after: q3Label)
         stackView.setCustomSpacing(64.0, after: thirdQuestion)
 
@@ -54,9 +64,32 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func firstButton(_ sender: Any) {
+        buttonResponse = "Very good"
+        print(buttonResponse)
+    }
+    
+    @IBAction func secondButton(_ sender: Any) {
+        buttonResponse = "Good"
+        print(buttonResponse)
+    }
+    
+    @IBAction func thirdButton(_ sender: Any) {
+        buttonResponse = "Neutral"
+        print(buttonResponse)
+    }
+    @IBAction func fourthButton(_ sender: Any) {
+        buttonResponse = "Bad"
+        print(buttonResponse)
+    }
+    @IBAction func fifthButton(_ sender: Any) {
+        buttonResponse = "Very bad"
+        print(buttonResponse)
+    }
+    
     func presentPopOver() {
         
-        if firstQuestion.text != "" && secondQuestion.text != "" && thirdQuestion.text != "" {
+        if firstQuestion.text != "" && secondQuestion.text != "" && thirdQuestion.text != "" && buttonResponse != "" {
             alertNotification = "Your Response Has Been Saved!"
             message = "Thank you for your input!"
             addResponse()
@@ -95,13 +128,23 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
                          "emailAddress": Auth.auth().currentUser?.email,
                          "firstQuestion": firstQuestion.text! as String,
                          "secondQuestion": secondQuestion.text! as String,
+                         "buttonResponse": buttonResponse as String,
                          "thirdQuestion": thirdQuestion.text! as String
         ]
         
         refResponse.child(key).setValue(responses)
+        
         firstQuestion.text = ""
         secondQuestion.text = ""
         thirdQuestion.text = ""
+        buttonResponse = ""
+        
+        button1Outlet.isSelected = false
+        button2Outlet.isSelected = false
+        button3Outlet.isSelected = false
+        button4Outlet.isSelected = false
+        button5Outlet.isSelected = false
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
