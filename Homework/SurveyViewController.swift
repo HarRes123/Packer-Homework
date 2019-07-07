@@ -12,7 +12,7 @@ import DLRadioButton
 
 class SurveyViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var thirdQuestion: UITextField!
+    @IBOutlet weak var fourthQuestion: UITextField!
     @IBOutlet weak var titleLabelText: UILabel!
     @IBOutlet weak var saveOutlet: UIButton!
     
@@ -51,8 +51,8 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        thirdQuestion.delegate = self
-        thirdQuestion.autocapitalizationType = .words
+        fourthQuestion.delegate = self
+        fourthQuestion.autocapitalizationType = .words
         
         q1Label.text = "How many minutes did you spend on homework tonight?" //add slider(?)
         
@@ -64,7 +64,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
 
         saveOutlet.layer.cornerRadius = 8
         
-        thirdQuestion.enablesReturnKeyAutomatically = false
+        fourthQuestion.enablesReturnKeyAutomatically = false
         
         stackView.setCustomSpacing(64.0, after: titleLabelText)
         stackView.setCustomSpacing(12.0, after: q1Label)
@@ -72,10 +72,14 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         stackView.setCustomSpacing(12.0, after: q2Label)
         stackView.setCustomSpacing(64.0, after: buttonView)
         stackView.setCustomSpacing(12.0, after: q3Label)
-        stackView.setCustomSpacing(64.0, after: thirdQuestion)
+        stackView.setCustomSpacing(64.0, after: fourthQuestion)
 
         refResponse = Database.database().reference().child("response")
         titleLabelText.text = "\nPlease Answer the \nFollowing Questions"
+        
+        selectOutlet.setTitle("Select a Subject", for: .normal)
+        
+        self.hideKeyboardWhenTappedAround()
 
         // Do any additional setup after loading the view.
     }
@@ -127,7 +131,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     
     func presentPopOver() {
         
-        if minDisplay.text != "Minutes: 0" && thirdQuestion.text != "" && buttonResponse != "" {
+        if minDisplay.text != "Minutes: 0" && fourthQuestion.text != "" && buttonResponse != "" && selectOutlet.titleLabel?.text != "Select a Subject" {
             alertNotification = "Your Response Has Been Saved!"
             message = "Thank you for your input!"
             addResponse()
@@ -166,13 +170,15 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
                          "emailAddress": Auth.auth().currentUser?.email,
                          "firstQuestion": minDisplay.text! as String,
                          "secondQuestion": buttonResponse as String,
-                         "thirdQuestion": thirdQuestion.text! as String
+                         "thirdQuestion": selectOutlet.titleLabel?.text,
+                         "fourthQuestion": fourthQuestion.text! as String
         ]
         
         refResponse.child(key).setValue(responses)
         
 
-        thirdQuestion.text = ""
+        fourthQuestion.text = ""
+        selectOutlet.setTitle("Select a Subject", for: .normal)
         buttonResponse = ""
         minDisplay.text = "Minutes: 0"
         sliderOutlet.value = 0
@@ -244,4 +250,16 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         
     }
 
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
