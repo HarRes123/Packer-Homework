@@ -13,12 +13,12 @@ import DLRadioButton
 class SurveyViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var fourthQuestion: UITextField!
-    @IBOutlet weak var titleLabelText: UILabel!
     @IBOutlet weak var saveOutlet: UIButton!
     
     @IBOutlet weak var q1Label: UILabel!
     @IBOutlet weak var q2Label: UILabel!
     @IBOutlet weak var q3Label: UILabel!
+    @IBOutlet weak var q4Label: UILabel!
     
     @IBOutlet weak var button1Outlet: DLRadioButton!
     @IBOutlet weak var button2Outlet: DLRadioButton!
@@ -38,6 +38,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var selectOutlet: UIButton!
     
+    @IBOutlet weak var dropDownStackView: UIStackView!
     
     var refResponse: DatabaseReference!
     var alertNotification = ""
@@ -52,30 +53,27 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         fourthQuestion.delegate = self
-        fourthQuestion.autocapitalizationType = .words
+        fourthQuestion.autocapitalizationType = .sentences
         
-        q1Label.text = "How many minutes did you spend on homework tonight?" //add slider(?)
-        
+        q1Label.text = "\nWhich subject did you spend the most time on tonight?" //drop down menu [math, science, history, english, word language, art, other -- manual input]
         q2Label.text = "How manageable was the work tonight?"
+        q3Label.text = "How many minutes did you spend on homework tonight?" //add slider(?)
+        q4Label.text = "Do you have any questions or comments? (Optional)"
         
-        q3Label.text = "Which subject did you spend the most time on tonight?" //drop down menu [math, science, history, english, word language, art, other -- manual input]
-        
-        //fourth field for other comments [optional] Any comments? (Optional)
-
         saveOutlet.layer.cornerRadius = 8
         
         fourthQuestion.enablesReturnKeyAutomatically = false
         
-        stackView.setCustomSpacing(64.0, after: titleLabelText)
         stackView.setCustomSpacing(12.0, after: q1Label)
-        stackView.setCustomSpacing(64.0, after: minDisplay)
+        stackView.setCustomSpacing(64.0, after: dropDownStackView)
         stackView.setCustomSpacing(12.0, after: q2Label)
         stackView.setCustomSpacing(64.0, after: buttonView)
         stackView.setCustomSpacing(12.0, after: q3Label)
+        stackView.setCustomSpacing(64.0, after: minDisplay)
+        stackView.setCustomSpacing(12.0, after: q4Label)
         stackView.setCustomSpacing(64.0, after: fourthQuestion)
 
         refResponse = Database.database().reference().child("response")
-        titleLabelText.text = "\nPlease Answer the \nFollowing Questions"
         
         selectOutlet.setTitle("Select a Subject", for: .normal)
         
@@ -131,7 +129,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     
     func presentPopOver() {
         
-        if minDisplay.text != "Minutes: 0" && fourthQuestion.text != "" && buttonResponse != "" && selectOutlet.titleLabel?.text != "Select a Subject" {
+        if minDisplay.text != "Minutes: 0" && buttonResponse != "" && selectOutlet.titleLabel?.text != "Select a Subject" {
             alertNotification = "Your Response Has Been Saved!"
             message = "Thank you for your input!"
             addResponse()
@@ -168,9 +166,9 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         
         let responses = [
                          "emailAddress": Auth.auth().currentUser?.email,
-                         "firstQuestion": minDisplay.text! as String,
+                         "firstQuestion": selectOutlet.titleLabel?.text,
                          "secondQuestion": buttonResponse as String,
-                         "thirdQuestion": selectOutlet.titleLabel?.text,
+                         "thirdQuestion": minDisplay.text! as String,
                          "fourthQuestion": fourthQuestion.text! as String
         ]
         
