@@ -177,9 +177,9 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         
         let key = (Auth.auth().currentUser?.displayName)! + ": " + dateString
         
-        var fourthQuestionResponse = fourthQuestion.text! as String
+        var fourthQuestionResponse = fourthQuestion.text
         
-        if fourthQuestion.text! == "" {
+        if fourthQuestion.text == "" {
             fourthQuestionResponse = "No response"
         }
         
