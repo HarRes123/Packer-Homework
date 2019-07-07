@@ -57,7 +57,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         
         q1Label.text = "\nWhich subject did you spend the most time on tonight?" //drop down menu [math, science, history, english, word language, art, other -- manual input]
         q2Label.text = "How manageable was the work tonight?"
-        q3Label.text = "How many minutes did you spend on homework tonight?" //add slider(?)
+        q3Label.text = "How much time did you spend on homework tonight?" //add slider(?)
         q4Label.text = "Do you have any questions or comments? (Optional)"
         
         saveOutlet.layer.cornerRadius = 8
@@ -79,6 +79,8 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         
         self.hideKeyboardWhenTappedAround()
 
+        minDisplay.text = "Time: 0 minutes"
+        
         // Do any additional setup after loading the view.
     }
     
@@ -96,13 +98,24 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+
+    
     @IBAction func minSlider(_ sender: UISlider) {
         
         //minDisplay.text = "Minutes: \(sender.value)"
-        minDisplay.text = String(format: "Minutes: %i",Int(sender.value))
+        //minDisplay.text = String(format: "Minutes: %i",Int(sender.value))
+        
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .full
+        
+        let currentValue = Int(sender.value)
+        
+        let formattedString = formatter.string(from: TimeInterval(currentValue))!
+      
+        self.minDisplay.text = "Time: \(formattedString)"
         
     }
-    
     
     @IBAction func firstButton(_ sender: Any) {
         buttonResponse = "Very good"
@@ -129,7 +142,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     
     func presentPopOver() {
         
-        if minDisplay.text != "Minutes: 0" && buttonResponse != "" && selectOutlet.titleLabel?.text != "Select a Subject" {
+        if minDisplay.text != "Time: 0 minutes" && buttonResponse != "" && selectOutlet.titleLabel?.text != "Select a Subject" {
             alertNotification = "Your Response Has Been Saved!"
             message = "Thank you for your input!"
             addResponse()
@@ -164,12 +177,19 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         
         let key = (Auth.auth().currentUser?.displayName)! + ": " + dateString
         
+        var fourthQuestionResponse = fourthQuestion.text! as String
+        
+        if fourthQuestion.text! == "" {
+            fourthQuestionResponse = "No response"
+        }
+        
         let responses = [
                          "emailAddress": Auth.auth().currentUser?.email,
                          "firstQuestion": selectOutlet.titleLabel?.text,
                          "secondQuestion": buttonResponse as String,
                          "thirdQuestion": minDisplay.text! as String,
-                         "fourthQuestion": fourthQuestion.text! as String
+                         "fourthQuestion": fourthQuestionResponse
+            
         ]
         
         refResponse.child(key).setValue(responses)
@@ -178,7 +198,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         fourthQuestion.text = ""
         selectOutlet.setTitle("Select a Subject", for: .normal)
         buttonResponse = ""
-        minDisplay.text = "Minutes: 0"
+        minDisplay.text = "Time: 0 minutes"
         sliderOutlet.value = 0
         
         button1Outlet.isSelected = false
