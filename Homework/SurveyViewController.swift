@@ -12,8 +12,6 @@ import DLRadioButton
 
 class SurveyViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var firstQuestion: UITextField!
-    @IBOutlet weak var secondQuestion: UITextField!
     @IBOutlet weak var thirdQuestion: UITextField!
     @IBOutlet weak var titleLabelText: UILabel!
     @IBOutlet weak var saveOutlet: UIButton!
@@ -28,9 +26,18 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var button4Outlet: DLRadioButton!
     @IBOutlet weak var button5Outlet: DLRadioButton!
     
+    @IBOutlet var subjectButtons: [UIButton]!
+    
+    @IBOutlet weak var sliderOutlet: UISlider!
+    
+    @IBOutlet weak var minDisplay: UILabel!
+    
     @IBOutlet weak var buttonView: UIView!
     
     @IBOutlet weak var stackView: UIStackView!
+    
+    @IBOutlet weak var selectOutlet: UIButton!
+    
     
     var refResponse: DatabaseReference!
     var alertNotification = ""
@@ -40,19 +47,28 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firstQuestion.delegate = self
-        secondQuestion.delegate = self
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         thirdQuestion.delegate = self
+        thirdQuestion.autocapitalizationType = .words
+        
+        q1Label.text = "How many minutes did you spend on homework tonight?" //add slider(?)
+        
+        q2Label.text = "How manageable was the work tonight?"
+        
+        q3Label.text = "Which subject did you spend the most time on tonight?" //drop down menu [math, science, history, english, word language, art, other -- manual input]
+        
+        //fourth field for other comments [optional] Any comments? (Optional)
 
         saveOutlet.layer.cornerRadius = 8
         
-        firstQuestion.enablesReturnKeyAutomatically = false
-        secondQuestion.enablesReturnKeyAutomatically = false
         thirdQuestion.enablesReturnKeyAutomatically = false
         
         stackView.setCustomSpacing(64.0, after: titleLabelText)
         stackView.setCustomSpacing(12.0, after: q1Label)
-        stackView.setCustomSpacing(64.0, after: firstQuestion)
+        stackView.setCustomSpacing(64.0, after: minDisplay)
         stackView.setCustomSpacing(12.0, after: q2Label)
         stackView.setCustomSpacing(64.0, after: buttonView)
         stackView.setCustomSpacing(12.0, after: q3Label)
@@ -63,6 +79,28 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
     }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    @IBAction func minSlider(_ sender: UISlider) {
+        
+        //minDisplay.text = "Minutes: \(sender.value)"
+        minDisplay.text = String(format: "Minutes: %i",Int(sender.value))
+        
+    }
+    
     
     @IBAction func firstButton(_ sender: Any) {
         buttonResponse = "Very good"
@@ -89,7 +127,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     
     func presentPopOver() {
         
-        if firstQuestion.text != "" && secondQuestion.text != "" && thirdQuestion.text != "" && buttonResponse != "" {
+        if minDisplay.text != "Minutes: 0" && thirdQuestion.text != "" && buttonResponse != "" {
             alertNotification = "Your Response Has Been Saved!"
             message = "Thank you for your input!"
             addResponse()
@@ -126,18 +164,18 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         
         let responses = [
                          "emailAddress": Auth.auth().currentUser?.email,
-                         "firstQuestion": firstQuestion.text! as String,
-                         "secondQuestion": secondQuestion.text! as String,
-                         "buttonResponse": buttonResponse as String,
+                         "firstQuestion": minDisplay.text! as String,
+                         "secondQuestion": buttonResponse as String,
                          "thirdQuestion": thirdQuestion.text! as String
         ]
         
         refResponse.child(key).setValue(responses)
         
-        firstQuestion.text = ""
-        secondQuestion.text = ""
+
         thirdQuestion.text = ""
         buttonResponse = ""
+        minDisplay.text = "Minutes: 0"
+        sliderOutlet.value = 0
         
         button1Outlet.isSelected = false
         button2Outlet.isSelected = false
@@ -165,5 +203,45 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func handleSelection(_ sender: UIButton) {
+        subjectButtons.forEach { (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    enum Subjects: String {
+        case english = "English"
+        case history = "History"
+        case math = "Math"
+        case science = "Science"
+    }
+    
+    @IBAction func subjectTapped(_ sender: UIButton) {
+        guard let title = sender.currentTitle, let subject = Subjects(rawValue: title) else {
+            return
+        }
+        
+        switch subject {
+            
+        case .english:
+            print("Enlgish")
+            selectOutlet.setTitle("English", for: .normal)
+        case .history:
+            print("History")
+            selectOutlet.setTitle("History", for: .normal)
+        case .math:
+            print("Math")
+            selectOutlet.setTitle("Math", for: .normal)
+        case .science:
+            print("Science")
+            selectOutlet.setTitle("Science", for: .normal)
+        
+        }
+        
+    }
 
 }
