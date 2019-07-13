@@ -144,6 +144,11 @@
 			<key>orderHint</key>
 			<integer>18</integer>
 		</dict>
+		<key>Pilas.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>23</integer>
+		</dict>
 		<key>Pods-Homework.xcscheme</key>
 		<dict>
 			<key>isShown</key>

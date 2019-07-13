@@ -20,6 +20,9 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var q3Label: UILabel!
     @IBOutlet weak var q4Label: UILabel!
     
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var button1Outlet: DLRadioButton!
     @IBOutlet weak var button2Outlet: DLRadioButton!
     @IBOutlet weak var button3Outlet: DLRadioButton!
@@ -97,6 +100,21 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
             self.view.frame.origin.y = 0
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        
+        self.scrollView.addSubview(stackView)
+        self.stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.stackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true
+        self.stackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true
+        self.stackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true
+        self.stackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true
+                
+        self.stackView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        
+    }
+    
     
 
     
