@@ -167,7 +167,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         } else {
             
             alertNotification = "You Response has not Been Saved"
-            message = "Please complete all fields"
+            message = "Please complete all required fields"
         }
         
         let alert = UIAlertController(title: alertNotification, message: message, preferredStyle: .alert)
