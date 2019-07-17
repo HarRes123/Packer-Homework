@@ -260,6 +260,8 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         case history = "History"
         case math = "Math"
         case science = "Science"
+        case language = "World Language"
+        case elective = "Elective"
     }
     
     @IBAction func subjectTapped(_ sender: UIButton) {
@@ -281,6 +283,12 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         case .science:
             print("Science")
             selectOutlet.setTitle("Science", for: .normal)
+        case .language:
+            print("World Language")
+            selectOutlet.setTitle("World Language", for: .normal)
+        case .elective:
+            print("Elective")
+            selectOutlet.setTitle("Elective", for: .normal)
         
         }
         
