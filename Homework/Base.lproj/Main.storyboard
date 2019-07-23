@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="08J-0k-gV9">
-                                <rect key="frame" x="101.5" y="390" width="211" height="116.5"/>
+                                <rect key="frame" x="101.5" y="348" width="211" height="200.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Packer Homework" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RI-Yo-Suw">
                                         <rect key="frame" x="0.0" y="0.0" width="211" height="32.5"/>
@@ -55,6 +55,18 @@
                                             <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BGi-CM-qnr"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NbY-Vv-8Fk">
+                                        <rect key="frame" x="0.0" y="150.5" width="211" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="UPN-er-cek"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Notifications"/>
+                                        <connections>
+                                            <segue destination="J5m-ma-rFq" kind="show" id="dL9-kd-TYL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -67,7 +79,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="3Bp-PX-ugQ"/>
                     <connections>
-                        <outlet property="logInOutlet" destination="aPI-kP-Jib" id="C1j-ya-iZo"/>
+                        <outlet property="logInOutlet" destination="aPI-kP-Jib" id="oKX-hk-KPD"/>
+                        <outlet property="notifcationOutlet" destination="NbY-Vv-8Fk" id="V0V-9U-3D6"/>
                         <segue destination="BcA-Eh-CqQ" kind="show" identifier="goHome" id="fvh-1w-Ge0"/>
                     </connections>
                 </viewController>
@@ -403,6 +416,81 @@
                 </stackView>
             </objects>
             <point key="canvasLocation" x="860.86956521739137" y="87.723214285714278"/>
+        </scene>
+        <!--Notifications-->
+        <scene sceneID="XsM-yJ-rRe">
+            <objects>
+                <viewController title="Notifications" id="J5m-ma-rFq" customClass="NotificationsViewController" customModule="Homework" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="evk-d9-i1D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vtl-K6-A1o">
+                                <rect key="frame" x="47" y="235" width="320" height="426"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TpE-SB-KBs">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="585508339.92122102">
+                                            <!--2019-07-22 17:12:19 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ae4-qU-UiT">
+                                        <rect key="frame" x="0.0" y="236" width="320" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hdR-kR-vAe"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Set Notification"/>
+                                        <connections>
+                                            <action selector="setNotification:" destination="J5m-ma-rFq" eventType="touchUpInside" id="wlN-Q4-vWy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZt-cF-ZQg">
+                                        <rect key="frame" x="0.0" y="306" width="320" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="wxW-KI-mjT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Not Repeating"/>
+                                        <connections>
+                                            <action selector="repeatNotification:" destination="J5m-ma-rFq" eventType="touchUpInside" id="qOZ-Xz-SlZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfr-tP-QJ4">
+                                        <rect key="frame" x="0.0" y="376" width="320" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="VRa-XH-3dF"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Cancel Notification"/>
+                                        <connections>
+                                            <action selector="cancelNotification:" destination="J5m-ma-rFq" eventType="touchUpInside" id="43B-Re-Tmz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vtl-K6-A1o" firstAttribute="centerX" secondItem="evk-d9-i1D" secondAttribute="centerX" id="HiL-PH-L59"/>
+                            <constraint firstItem="vtl-K6-A1o" firstAttribute="centerY" secondItem="evk-d9-i1D" secondAttribute="centerY" id="znb-Mf-mMW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nNW-3q-1RS"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelOutlet" destination="dfr-tP-QJ4" id="arI-50-0ai"/>
+                        <outlet property="datePicker" destination="TpE-SB-KBs" id="oaa-X3-lPR"/>
+                        <outlet property="notifcationOutlet" destination="ae4-qU-UiT" id="jgS-6N-1zh"/>
+                        <outlet property="repeatOutlet" destination="HZt-cF-ZQg" id="ayx-ol-qTD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLs-ua-DwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535" y="87"/>
         </scene>
     </scenes>
     <resources>

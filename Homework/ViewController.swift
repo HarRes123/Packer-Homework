@@ -12,11 +12,13 @@ import GoogleSignIn
 
 class ViewController: UIViewController, FUIAuthDelegate {
     @IBOutlet weak var logInOutlet: UIButton!
+    @IBOutlet weak var notifcationOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         logInOutlet.layer.cornerRadius = 8
+        notifcationOutlet.layer.cornerRadius = 8
         
     }
     

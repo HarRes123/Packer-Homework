@@ -11,6 +11,7 @@
 		627372C422BEC940004BAD8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 627372C322BEC940004BAD8D /* GoogleService-Info.plist */; };
 		627372C522BEC940004BAD8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 627372C322BEC940004BAD8D /* GoogleService-Info.plist */; };
 		627372C622BEC940004BAD8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 627372C322BEC940004BAD8D /* GoogleService-Info.plist */; };
+		629016EB22E6249100A6CFFD /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629016EA22E6249100A6CFFD /* NotificationsViewController.swift */; };
 		62C0A42A22BEE9A70022F5CD /* packer.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C0A42922BEE9A70022F5CD /* packer.png */; };
 		62C24FFD22BEC87C0018CA20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C24FFC22BEC87C0018CA20 /* AppDelegate.swift */; };
 		62C24FFF22BEC87C0018CA20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C24FFE22BEC87C0018CA20 /* ViewController.swift */; };
@@ -43,6 +44,8 @@
 		210B2F65135A952B872DE765 /* Pods-Homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework.release.xcconfig"; path = "Target Support Files/Pods-Homework/Pods-Homework.release.xcconfig"; sourceTree = "<group>"; };
 		623DB2E722BEF33D0017B73E /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		627372C322BEC940004BAD8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6283055722E6045C000034C6 /* Homework.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Homework.entitlements; sourceTree = "<group>"; };
+		629016EA22E6249100A6CFFD /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		62C0A42922BEE9A70022F5CD /* packer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = packer.png; sourceTree = "<group>"; };
 		62C24FF922BEC87C0018CA20 /* Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C24FFC22BEC87C0018CA20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +124,9 @@
 		62C24FFB22BEC87C0018CA20 /* Homework */ = {
 			isa = PBXGroup;
 			children = (
+				6283055722E6045C000034C6 /* Homework.entitlements */,
 				62C24FFC22BEC87C0018CA20 /* AppDelegate.swift */,
+				629016EA22E6249100A6CFFD /* NotificationsViewController.swift */,
 				62C24FFE22BEC87C0018CA20 /* ViewController.swift */,
 				623DB2E722BEF33D0017B73E /* SurveyViewController.swift */,
 				62C2500022BEC87C0018CA20 /* Main.storyboard */,
@@ -231,6 +236,11 @@
 				TargetAttributes = {
 					62C24FF822BEC87C0018CA20 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					62C2500C22BEC8870018CA20 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -360,6 +370,7 @@
 				62C24FFF22BEC87C0018CA20 /* ViewController.swift in Sources */,
 				623DB2E822BEF33D0017B73E /* SurveyViewController.swift in Sources */,
 				62C24FFD22BEC87C0018CA20 /* AppDelegate.swift in Sources */,
+				629016EB22E6249100A6CFFD /* NotificationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +548,7 @@
 			baseConfigurationReference = AF7D6151D8742C5FC6492444 /* Pods-Homework.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Homework/Homework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5JJZ9DST9Z;
 				INFOPLIST_FILE = Homework/Info.plist;
@@ -557,6 +569,7 @@
 			baseConfigurationReference = 210B2F65135A952B872DE765 /* Pods-Homework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Homework/Homework.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5JJZ9DST9Z;
 				INFOPLIST_FILE = Homework/Info.plist;
