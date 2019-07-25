@@ -73,6 +73,7 @@ class NotificationsViewController: UIViewController {
         
         UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
             print(notifications)
+            
 
             DispatchQueue.main.async {
                 if notifications != [] {
@@ -80,10 +81,29 @@ class NotificationsViewController: UIViewController {
                     self.cancelOutlet?.isEnabled = true
                     self.cancelOutlet.backgroundColor = .appleBlue()
                     
+                    self.notifcationOutlet.isEnabled = false
+                    self.notifcationOutlet.backgroundColor = .gray
+                    
+                    self.repeatOutlet.isEnabled = false
+                    self.repeatOutlet.backgroundColor = .gray
+                    self.repeatOutlet.setTitleColor(.lightGray, for: .normal)
+            
+                    self.datePicker.isEnabled = false
+                    
                 } else {
                     
                     self.cancelOutlet?.isEnabled = false
                     self.cancelOutlet.backgroundColor = .gray
+                    
+                    self.notifcationOutlet?.isEnabled = true
+                    self.notifcationOutlet.backgroundColor = .appleBlue()
+                    
+                    self.repeatOutlet?.isEnabled = true
+                    self.repeatOutlet.backgroundColor = .appleBlue()
+                    self.repeatOutlet.setTitleColor(.white, for: .normal)
+
+                    
+                    self.datePicker.isEnabled = true
                     
                 }
                 
