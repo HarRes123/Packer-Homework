@@ -20,8 +20,9 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var q3Label: UILabel!
     @IBOutlet weak var q4Label: UILabel!
     
-    
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var currentUser: UILabel!
     
     @IBOutlet weak var button1Outlet: DLRadioButton!
     @IBOutlet weak var button2Outlet: DLRadioButton!
@@ -50,7 +51,8 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(signOut))
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -115,7 +117,15 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
+    @objc func signOut(sender: UIBarButtonItem) {
+        
+        try! Auth.auth().signOut()
+        
+        if let storyboard = self.storyboard {
+            let vc = storyboard.instantiateViewController(withIdentifier: "firstVC") as! UINavigationController
+            self.present(vc, animated: false, completion: nil)
+        }
+    }
 
     
     @IBAction func minSlider(_ sender: UISlider) {
@@ -229,6 +239,8 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
          self.navigationController?.isNavigationBarHidden = false
+        
+        currentUser.text = "Current User: \(Auth.auth().currentUser?.email ?? "N/A")"
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
