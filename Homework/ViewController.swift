@@ -25,27 +25,35 @@ class ViewController: UIViewController, FUIAuthDelegate {
     @IBAction func loginTapped(_ sender: Any) {
         
         // Create default Auth UI
-        let authUI = FUIAuth.defaultAuthUI()
-        
-        // Check that it isn't nil
-        guard authUI != nil else {
-            return
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            self.performSegue(withIdentifier: "goHome", sender: self)
+            
+        } else {
+            // No user is signed in.
+            
+            let authUI = FUIAuth.defaultAuthUI()
+            
+            // Check that it isn't nil
+            guard authUI != nil else {
+                return
+            }
+            
+            // Set delegate and specify sign in options
+            authUI?.delegate = self
+            authUI?.providers = [FUIEmailAuth(), FUIGoogleAuth(), FUIFacebookAuth()]
+            
+            // Get the auth view controller and present it
+            let authViewController = authUI!.authViewController()
+            
+            //                let backItem = UIBarButtonItem()
+            //                backItem.title = "Back"
+            //                self.navigationItem.backBarButtonItem = backItem
+            
+            self.present(authViewController, animated: true, completion: nil)
         }
-        
-        // Set delegate and specify sign in options
-        authUI?.delegate = self
-        authUI?.providers = [FUIEmailAuth(), FUIGoogleAuth(), FUIFacebookAuth()]
-        
-        // Get the auth view controller and present it
-        let authViewController = authUI!.authViewController()
-   
-        let backItem = UIBarButtonItem()
-        backItem.title = "Sign Out"
-        navigationItem.backBarButtonItem = backItem
-        
-        present(authViewController, animated: true, completion: nil)
-        
-        }
+
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
