@@ -33,7 +33,7 @@ class NotificationsViewController: UIViewController {
         repeatOutlet.setTitle("Not Repeating", for: .normal)
         repeatOutlet.setTitle("Repeating", for: .selected)
         
-        dateComponent = datePicker.calendar.dateComponents([.day, .hour, .minute], from: datePicker.date)
+        dateComponent = datePicker.calendar.dateComponents([.day, .hour, .minute, .second], from: datePicker.date)
 
         
     }
@@ -70,11 +70,9 @@ class NotificationsViewController: UIViewController {
     }
     
     func checkForNotifications() {
-        
+
         UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
             print(notifications)
-            
-
             DispatchQueue.main.async {
                 if notifications != [] {
                     
@@ -87,6 +85,7 @@ class NotificationsViewController: UIViewController {
                     self.repeatOutlet.isEnabled = false
                     self.repeatOutlet.backgroundColor = .gray
                     self.repeatOutlet.setTitleColor(.lightGray, for: .normal)
+                    self.repeatOutlet.setTitle("Disabled", for: .normal)
             
                     self.datePicker.isEnabled = false
                     
@@ -101,7 +100,7 @@ class NotificationsViewController: UIViewController {
                     self.repeatOutlet?.isEnabled = true
                     self.repeatOutlet.backgroundColor = .appleBlue()
                     self.repeatOutlet.setTitleColor(.white, for: .normal)
-
+                    self.repeatOutlet.setTitle("Not Repeating", for: .normal)
                     
                     self.datePicker.isEnabled = true
                     
@@ -113,13 +112,11 @@ class NotificationsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-        
     
         self.checkForNotifications()
-        
 
     }
-    
+
     func scheduleNotification() {
         let content = UNMutableNotificationContent() //The notification's content
         content.title = "Reminder: Complete Survey"
@@ -131,7 +128,7 @@ class NotificationsViewController: UIViewController {
             print("Enabled")
             
          // dateComponent = datePicker.calendar.dateComponents([.second], from: datePicker.date)
-            dateComponent = datePicker.calendar.dateComponents([.hour, .minute], from: datePicker.date)
+            dateComponent = datePicker.calendar.dateComponents([.hour, .minute, .second], from: datePicker.date)
             shouldRepeat = true
             
             
@@ -139,7 +136,7 @@ class NotificationsViewController: UIViewController {
             
             print("Disabled")
             
-            dateComponent = datePicker.calendar.dateComponents([.day, .hour, .minute], from: datePicker.date)
+            dateComponent = datePicker.calendar.dateComponents([.day, .hour, .minute, .second], from: datePicker.date)
             shouldRepeat = false
             
         }
