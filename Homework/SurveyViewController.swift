@@ -92,12 +92,22 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
     
     @objc func signOut(sender: UIBarButtonItem) {
         
-        try! Auth.auth().signOut()
-        
-        if let storyboard = self.storyboard {
-            let vc = storyboard.instantiateViewController(withIdentifier: "firstVC") as! UINavigationController
-            self.present(vc, animated: false, completion: nil)
+        let alert = UIAlertController(title: "Would You Like to Sign Out of Your Account?", message: "", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes", style: .default) { (action:UIAlertAction) in
+            try! Auth.auth().signOut()
+            
+            if let storyboard = self.storyboard {
+                let vc = storyboard.instantiateViewController(withIdentifier: "firstVC") as! UINavigationController
+                self.present(vc, animated: false, completion: nil)
+            }
         }
+        
+        let no = UIAlertAction(title: "No", style: .cancel) { (action:UIAlertAction) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(yes)
+        alert.addAction(no)
+        self.present(alert, animated: true)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
