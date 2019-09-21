@@ -74,18 +74,23 @@ extension ViewController {
         if (Auth.auth().currentUser?.email?.contains("packer.edu"))! {
             
             print("This is a Packer Email Address")
-            //performSegue(withIdentifier: "goHome", sender: self)
+            performSegue(withIdentifier: "goHome", sender: self)
             
         } else {
             
             print("This is NOT a Packer Email Address")
-//            let alert = UIAlertController(title: "Invalid Email Address", message: "Plese sign in using your packer email address", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//            self.present(alert, animated: true)
+            let alert = UIAlertController(title: "Invalid Email Address", message: "Plese sign in using your Packer email address", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            let user = Auth.auth().currentUser
+            user?.delete { error in
+                if error != nil {
+                    // An error happened.
+                } else {
+                    // Account deleted.
+                }
+            }
         }
-        
-        performSegue(withIdentifier: "goHome", sender: self)
     }
-    
 }
 
