@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>22155770975-ls467b9l3ac56ngnigt6clkraap0hg41.apps.googleusercontent.com</string>
+	<string>22155770975-dtd7ldccg57mh4754voln3po2v7f4bd5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.22155770975-ls467b9l3ac56ngnigt6clkraap0hg41</string>
+	<string>com.googleusercontent.apps.22155770975-dtd7ldccg57mh4754voln3po2v7f4bd5</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDQyB5LLi9D1qbEyw7KmRDruory51S-Ogc</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,23 +13,23 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Harrison-Resnick.Homework</string>
+	<string>Packer.Homework</string>
 	<key>PROJECT_ID</key>
 	<string>packer-homework</string>
 	<key>STORAGE_BUCKET</key>
 	<string>packer-homework.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:22155770975:ios:6d285a6e08f7730b</string>
+	<string>1:22155770975:ios:0dc170f8c65c67c081afea</string>
 	<key>DATABASE_URL</key>
 	<string>https://packer-homework.firebaseio.com</string>
 </dict>
