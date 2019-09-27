@@ -198,8 +198,8 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
                               resultCallback:result];
     } else {
       [self.auth signInWithCredential:credential
-                                          completion:^(FIRAuthDataResult *_Nullable authResult,
-                                                       NSError *_Nullable error) {
+                           completion:^(FIRAuthDataResult *_Nullable authResult,
+                                        NSError *_Nullable error) {
         if (error && error.code == FIRAuthErrorCodeAccountExistsWithDifferentCredential) {
           NSString *email = error.userInfo[kErrorUserInfoEmailKey];
           [self.emailAuthProvider handleAccountLinkingForEmail:email
@@ -231,8 +231,8 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
                           resultCallback:(nullable FIRAuthResultCallback)callback {
   [self.auth.currentUser
       linkWithCredential:credential
-                             completion:^(FIRAuthDataResult *_Nullable authResult,
-                                          NSError * _Nullable error) {
+              completion:^(FIRAuthDataResult *_Nullable authResult,
+                           NSError * _Nullable error) {
     if (error) {
       // Check for "credential in use" conflict error and handle appropriately.
       if (error.code == FIRAuthErrorCodeCredentialAlreadyInUse) {
@@ -284,8 +284,8 @@ static NSString *const kFirebaseAuthUIFrameworkMarker = @"FirebaseUI-iOS";
             }
 
             [authResult.user linkWithCredential:credential
-                                                    completion:^(FIRAuthDataResult *authResult,
-                                                                 NSError *linkError) {
+                                     completion:^(FIRAuthDataResult *authResult,
+                                                  NSError *linkError) {
               if (linkError) {
                 [self completeSignInWithResult:nil
                                          error:linkError

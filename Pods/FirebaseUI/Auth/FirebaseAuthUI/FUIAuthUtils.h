@@ -16,22 +16,24 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /* Name of the FirebaseAuthUI resource bundle. */
-extern NSString * _Nonnull const FUIAuthBundleName;
+extern NSString *const FUIAuthBundleName;
 
 /** @class FUIAuthUtils
     @brief Provides utility methods for Firebase Auth UI.
  */
 @interface FUIAuthUtils : NSObject
 
-- (instancetype _Nonnull )init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /** @fn bundleNamed:
     @brief Gets the framework bundle for specified name
     @param bundleName Name of the bundle to retreive. If nil, this returns the default bundle for
         FirebaseUI.
  */
-+ (NSBundle *_Nullable)bundleNamed:(nullable NSString *)bundleName;
++ (nullable NSBundle *)bundleNamed:(nullable NSString *)bundleName;
 
 /** @fn imageNamed:fromBundle:
     @brief Gets a UIImage with the given name, assuming it's a png.
@@ -39,7 +41,7 @@ extern NSString * _Nonnull const FUIAuthBundleName;
     @param bundleNameOrNil Name of the bundle to retreive. If nil, this method will look into the
         default FirebaseUI framework bundle.
  */
-+ (UIImage *_Nullable)imageNamed:(NSString *_Nullable)name fromBundleNameOrNil:(nullable NSString *)bundleNameOrNil;
++ (nullable UIImage *)imageNamed:(NSString *)name fromBundleNameOrNil:(nullable NSString *)bundleNameOrNil;
 
 /** @fn imageNamed:fromBundle:
  @brief Gets a UIImage with the given name, assuming it's a png.
@@ -47,11 +49,8 @@ extern NSString * _Nonnull const FUIAuthBundleName;
  @param bundle The bundle to retrieve the image from. If nil, this method will look into the
      default FirebaseUI framework bundle.
  */
-+ (UIImage *_Nullable)imageNamed:(NSString *_Nullable)name fromBundle:(nullable NSBundle *)bundle;
-
-/** @fn isFirebasePerformanceAvailable
- * @brief Used to work around https://github.com/firebase/firebase-ios-sdk/issues/2283
- */
-+ (BOOL)isFirebasePerformanceAvailable;
++ (nullable UIImage *)imageNamed:(NSString *)name fromBundle:(nullable NSBundle *)bundle;
 
 @end
+
+NS_ASSUME_NONNULL_END

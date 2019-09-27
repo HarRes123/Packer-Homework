@@ -8,5 +8,5 @@ target 'Homework' do
 	pod 'FirebaseUI/Facebook'
 	pod 'Firebase/Database'
 	pod 'FBSDKLoginKit'
-	pod 'DLRadioButton', '~> 1.4'
+	pod 'DLRadioButton'
 end
