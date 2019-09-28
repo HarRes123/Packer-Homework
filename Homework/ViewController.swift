@@ -25,7 +25,7 @@ class ViewController: UIViewController, FUIAuthDelegate {
     @IBAction func loginTapped(_ sender: Any) {
         
         // Create default Auth UI
-        if Auth.auth().currentUser != nil {
+        if Auth.auth().currentUser != nil && Auth.auth().currentUser!.isEmailVerified == true{
             // User is signed in.
             self.performSegue(withIdentifier: "goHome", sender: self)
             
@@ -69,17 +69,40 @@ extension ViewController {
         guard error == nil else {
             return
         }
+        var title = ""
+        var messege = ""
         
         // Transition to home
         if (Auth.auth().currentUser?.email?.contains("packer.edu"))! {
             
             print("This is a Packer Email Address")
-            performSegue(withIdentifier: "goHome", sender: self)
+            
+            if Auth.auth().currentUser!.isEmailVerified == true {
+                
+                print("VERIFIED")
+                performSegue(withIdentifier: "goHome", sender: self)
+            } else {
+                
+                print("NOT VERIFIED")
+                title = "Verify Account"
+                messege = "Please check you email and verify your account"
+                let alert = UIAlertController(title: title, message: messege, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                Auth.auth().currentUser?.sendEmailVerification { (error) in
+                    // ...
+                }
+                self.present(alert, animated: true)
+                
+            }
+            
             
         } else {
             
             print("This is NOT a Packer Email Address")
-            let alert = UIAlertController(title: "Invalid Email Address", message: "Plese sign in using your Packer email address", preferredStyle: .alert)
+            
+            title = "Invalid Email Address"
+            messege = "Plese sign in using your Packer email address"
+            let alert = UIAlertController(title: title, message: messege, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
             let user = Auth.auth().currentUser
@@ -93,4 +116,3 @@ extension ViewController {
         }
     }
 }
-
