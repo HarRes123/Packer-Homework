@@ -96,10 +96,7 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         let yes = UIAlertAction(title: "Yes", style: .default) { (action:UIAlertAction) in
             try! Auth.auth().signOut()
             
-            if let storyboard = self.storyboard {
-                let vc = storyboard.instantiateViewController(withIdentifier: "firstVC") as! UINavigationController
-                self.present(vc, animated: false, completion: nil)
-            }
+            self.performSegue(withIdentifier: "logOut", sender: self)
         }
         
         let no = UIAlertAction(title: "No", style: .cancel) { (action:UIAlertAction) in
