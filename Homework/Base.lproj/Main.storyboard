@@ -107,7 +107,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7hI-hu-VlA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xqj-a0-ka9"/>
+                    <navigationItem key="navigationItem" title="Questions" id="Xqj-a0-ka9"/>
                     <connections>
                         <outlet property="button1Outlet" destination="x4l-re-trG" id="CoP-hl-bu2"/>
                         <outlet property="button2Outlet" destination="v8o-HM-57V" id="5bi-ay-PXf"/>
@@ -134,7 +134,7 @@
                         <outletCollection property="subjectButtons" destination="TCZ-2i-c82" collectionClass="NSMutableArray" id="bCf-ym-wBV"/>
                         <outletCollection property="subjectButtons" destination="hGS-Eb-T8M" collectionClass="NSMutableArray" id="D4R-lh-V2r"/>
                         <outletCollection property="subjectButtons" destination="5Xj-bi-5bA" collectionClass="NSMutableArray" id="XYt-ha-tp6"/>
-                        <segue destination="onr-0D-fkz" kind="presentation" identifier="signOut" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="6GK-re-eNc"/>
+                        <segue destination="onr-0D-fkz" kind="presentation" identifier="logOut" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="6GK-re-eNc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPs-k4-aEp" sceneMemberID="firstResponder"/>
@@ -484,7 +484,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nNW-3q-1RS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3eC-Yj-uIE"/>
+                    <navigationItem key="navigationItem" title="Notifications" id="3eC-Yj-uIE"/>
                     <connections>
                         <outlet property="cancelOutlet" destination="dfr-tP-QJ4" id="arI-50-0ai"/>
                         <outlet property="datePicker" destination="TpE-SB-KBs" id="oaa-X3-lPR"/>
