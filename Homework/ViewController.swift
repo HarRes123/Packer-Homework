@@ -41,7 +41,7 @@ class ViewController: UIViewController, FUIAuthDelegate {
             
             // Set delegate and specify sign in options
             authUI?.delegate = self
-            authUI?.providers = [FUIEmailAuth(), FUIGoogleAuth(), FUIFacebookAuth()]
+            authUI?.providers = [FUIEmailAuth(), FUIGoogleAuth()/*, FUIFacebookAuth()*/]
             
             // Get the auth view controller and present it
             let authViewController = authUI!.authViewController()

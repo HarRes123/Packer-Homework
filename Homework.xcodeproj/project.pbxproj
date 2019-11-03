@@ -547,7 +547,7 @@
 				CODE_SIGN_ENTITLEMENTS = Homework/Homework.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.04;
+				CURRENT_PROJECT_VERSION = 1.06;
 				DEVELOPMENT_TEAM = P86EF9T6F3;
 				INFOPLIST_FILE = Homework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -555,6 +555,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = Packer.Homework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -571,7 +572,7 @@
 				CODE_SIGN_ENTITLEMENTS = Homework/Homework.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.04;
+				CURRENT_PROJECT_VERSION = 1.06;
 				DEVELOPMENT_TEAM = P86EF9T6F3;
 				INFOPLIST_FILE = Homework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -579,6 +580,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = Packer.Homework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

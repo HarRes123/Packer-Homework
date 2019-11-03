@@ -119,9 +119,9 @@
                         <outlet property="dropDownStackView" destination="naj-0W-DU5" id="Lfr-mz-xBn"/>
                         <outlet property="fourthQuestion" destination="2nE-Ig-Jwc" id="fx4-7Q-IQT"/>
                         <outlet property="minDisplay" destination="iNw-LU-MRw" id="kaY-03-3ez"/>
-                        <outlet property="q1Label" destination="ulS-bZ-tG7" id="sqg-Rk-BU1"/>
+                        <outlet property="q1Label" destination="oaR-7F-8Nt" id="mUO-Yf-Nf8"/>
                         <outlet property="q2Label" destination="v09-B5-Cc5" id="YsQ-4F-v21"/>
-                        <outlet property="q3Label" destination="oaR-7F-8Nt" id="AFt-An-fen"/>
+                        <outlet property="q3Label" destination="ulS-bZ-tG7" id="axl-E2-pr4"/>
                         <outlet property="q4Label" destination="H9G-dU-z7j" id="LTZ-S3-gXS"/>
                         <outlet property="saveOutlet" destination="ktL-0j-t6c" id="OqJ-0j-W2u"/>
                         <outlet property="scrollView" destination="sMf-ww-mOz" id="Q1S-gR-6i0"/>
@@ -142,14 +142,136 @@
                     <rect key="frame" x="0.0" y="0.0" width="382" height="396"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Question 1" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulS-bZ-tG7">
-                            <rect key="frame" x="16" y="44" width="350" height="0.0"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Question 3" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaR-7F-8Nt" userLabel="Q1Label">
+                            <rect key="frame" x="16" y="44" width="350" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="14400" translatesAutoresizingMaskIntoConstraints="NO" id="vDD-bg-ZEy">
+                            <rect key="frame" x="14" y="74.5" width="354" height="1"/>
+                            <connections>
+                                <action selector="minSlider:" destination="BcA-Eh-CqQ" eventType="valueChanged" id="dKQ-uu-MHn"/>
+                            </connections>
+                        </slider>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Time: 0 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNw-LU-MRw">
+                            <rect key="frame" x="16" y="84.5" width="350" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Question 2" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v09-B5-Cc5">
+                            <rect key="frame" x="16" y="94.5" width="350" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PkQ-yM-hmv">
+                            <rect key="frame" x="16" y="104.5" width="350" height="43.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At0-vs-20U" customClass="DLRadioButton">
+                                    <rect key="frame" x="153" y="0.0" width="44" height="43.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="At0-vs-20U" secondAttribute="height" multiplier="1:1" id="moV-ee-HZE"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="3"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="icon" value="3"/>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="3 selected"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="thirdButton:" destination="BcA-Eh-CqQ" eventType="touchUpInside" id="QHu-df-7fN"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBb-HM-bQ3" customClass="DLRadioButton">
+                                    <rect key="frame" x="306.5" y="0.0" width="43.5" height="43.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="kBb-HM-bQ3" secondAttribute="height" multiplier="1:1" id="QfG-O0-DkB"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="5"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="icon" value="5"/>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="5 selected"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="fifthButton:" destination="BcA-Eh-CqQ" eventType="touchUpInside" id="vSA-qB-Rvk"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFy-tD-iKg" customClass="DLRadioButton">
+                                    <rect key="frame" x="230" y="0.0" width="43.5" height="43.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="jFy-tD-iKg" secondAttribute="height" multiplier="1:1" id="eyE-qz-LQZ"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="4"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="icon" value="4"/>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="4 selected"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="fourthButton:" destination="BcA-Eh-CqQ" eventType="touchUpInside" id="xv0-v0-ETN"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4l-re-trG" customClass="DLRadioButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="x4l-re-trG" secondAttribute="height" multiplier="1:1" id="9XT-Ox-VuH"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="1"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="icon" value="1"/>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="1 selected"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="firstButton:" destination="BcA-Eh-CqQ" eventType="touchUpInside" id="OhR-bN-i3m"/>
+                                        <outletCollection property="otherButtons" destination="v8o-HM-57V" id="Xzg-R7-ZqK"/>
+                                        <outletCollection property="otherButtons" destination="At0-vs-20U" id="Pbk-2a-hl9"/>
+                                        <outletCollection property="otherButtons" destination="jFy-tD-iKg" id="ZUP-YX-nFa"/>
+                                        <outletCollection property="otherButtons" destination="kBb-HM-bQ3" id="ZEX-1o-GhK"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8o-HM-57V" customClass="DLRadioButton">
+                                    <rect key="frame" x="76.5" y="0.0" width="43.5" height="43.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="v8o-HM-57V" secondAttribute="height" multiplier="1:1" id="4nd-Te-cFV"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="2"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="icon" value="2"/>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="2 selected"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="secondButton:" destination="BcA-Eh-CqQ" eventType="touchUpInside" id="Z44-x3-Acx"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="kBb-HM-bQ3" firstAttribute="top" secondItem="PkQ-yM-hmv" secondAttribute="top" id="993-6d-kZl"/>
+                                <constraint firstItem="kBb-HM-bQ3" firstAttribute="leading" secondItem="jFy-tD-iKg" secondAttribute="trailing" constant="33" id="C06-RT-uHc"/>
+                                <constraint firstAttribute="bottom" secondItem="At0-vs-20U" secondAttribute="bottom" id="FxV-P7-ynj"/>
+                                <constraint firstAttribute="bottom" secondItem="kBb-HM-bQ3" secondAttribute="bottom" id="Fxo-uW-NHD"/>
+                                <constraint firstAttribute="trailing" secondItem="kBb-HM-bQ3" secondAttribute="trailing" id="J0e-lM-QGv"/>
+                                <constraint firstItem="At0-vs-20U" firstAttribute="leading" secondItem="v8o-HM-57V" secondAttribute="trailing" constant="33" id="Ky4-eD-uEr"/>
+                                <constraint firstAttribute="bottom" secondItem="v8o-HM-57V" secondAttribute="bottom" id="NjM-YN-6Ry"/>
+                                <constraint firstItem="x4l-re-trG" firstAttribute="top" secondItem="PkQ-yM-hmv" secondAttribute="top" id="QXG-vm-5Fu"/>
+                                <constraint firstAttribute="bottom" secondItem="x4l-re-trG" secondAttribute="bottom" id="R56-7X-ieJ"/>
+                                <constraint firstItem="At0-vs-20U" firstAttribute="top" secondItem="PkQ-yM-hmv" secondAttribute="top" id="RvY-JD-pjO"/>
+                                <constraint firstItem="jFy-tD-iKg" firstAttribute="top" secondItem="PkQ-yM-hmv" secondAttribute="top" id="csX-ZW-xgQ"/>
+                                <constraint firstItem="v8o-HM-57V" firstAttribute="top" secondItem="PkQ-yM-hmv" secondAttribute="top" id="kR6-0g-r6n"/>
+                                <constraint firstItem="v8o-HM-57V" firstAttribute="leading" secondItem="x4l-re-trG" secondAttribute="trailing" constant="33" id="lNb-d8-RdF"/>
+                                <constraint firstItem="x4l-re-trG" firstAttribute="leading" secondItem="PkQ-yM-hmv" secondAttribute="leading" id="llC-h7-kaq"/>
+                                <constraint firstItem="jFy-tD-iKg" firstAttribute="leading" secondItem="At0-vs-20U" secondAttribute="trailing" constant="33" id="qif-Ry-Jau"/>
+                                <constraint firstAttribute="bottom" secondItem="jFy-tD-iKg" secondAttribute="bottom" id="xwe-at-Bcj"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Question 1" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulS-bZ-tG7" userLabel="Q3Label">
+                            <rect key="frame" x="16" y="158" width="350" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="naj-0W-DU5">
-                            <rect key="frame" x="16" y="54" width="350" height="50"/>
+                            <rect key="frame" x="16" y="168" width="350" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dL-bP-6Mc">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -265,128 +387,6 @@
                                 <constraint firstItem="7dL-bP-6Mc" firstAttribute="leading" secondItem="naj-0W-DU5" secondAttribute="leading" id="toK-HF-z94"/>
                             </constraints>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Question 2" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v09-B5-Cc5">
-                            <rect key="frame" x="16" y="114" width="350" height="0.0"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PkQ-yM-hmv">
-                            <rect key="frame" x="16" y="124" width="350" height="43.5"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At0-vs-20U" customClass="DLRadioButton">
-                                    <rect key="frame" x="153" y="0.0" width="44" height="43.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="At0-vs-20U" secondAttribute="height" multiplier="1:1" id="moV-ee-HZE"/>
-                                    </constraints>
-                                    <state key="normal" title="Button" image="3"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="image" keyPath="icon" value="3"/>
-                                        <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="3 selected"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="thirdButton:" destination="BcA-Eh-CqQ" eventType="touchUpInside" id="QHu-df-7fN"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBb-HM-bQ3" customClass="DLRadioButton">
-                                    <rect key="frame" x="306.5" y="0.0" width="43.5" height="43.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="kBb-HM-bQ3" secondAttribute="height" multiplier="1:1" id="QfG-O0-DkB"/>
-                                    </constraints>
-                                    <state key="normal" title="Button" image="5"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="image" keyPath="icon" value="5"/>
-                                        <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="5 selected"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="fifthButton:" destination="BcA-Eh-CqQ" eventType="touchUpInside" id="vSA-qB-Rvk"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFy-tD-iKg" customClass="DLRadioButton">
-                                    <rect key="frame" x="230" y="0.0" width="43.5" height="43.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="jFy-tD-iKg" secondAttribute="height" multiplier="1:1" id="eyE-qz-LQZ"/>
-                                    </constraints>
-                                    <state key="normal" title="Button" image="4"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="image" keyPath="icon" value="4"/>
-                                        <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="4 selected"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="fourthButton:" destination="BcA-Eh-CqQ" eventType="touchUpInside" id="xv0-v0-ETN"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4l-re-trG" customClass="DLRadioButton">
-                                    <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="x4l-re-trG" secondAttribute="height" multiplier="1:1" id="9XT-Ox-VuH"/>
-                                    </constraints>
-                                    <state key="normal" title="Button" image="1"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="image" keyPath="icon" value="1"/>
-                                        <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="1 selected"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="firstButton:" destination="BcA-Eh-CqQ" eventType="touchUpInside" id="OhR-bN-i3m"/>
-                                        <outletCollection property="otherButtons" destination="v8o-HM-57V" id="Xzg-R7-ZqK"/>
-                                        <outletCollection property="otherButtons" destination="At0-vs-20U" id="Pbk-2a-hl9"/>
-                                        <outletCollection property="otherButtons" destination="jFy-tD-iKg" id="ZUP-YX-nFa"/>
-                                        <outletCollection property="otherButtons" destination="kBb-HM-bQ3" id="ZEX-1o-GhK"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8o-HM-57V" customClass="DLRadioButton">
-                                    <rect key="frame" x="76.5" y="0.0" width="43.5" height="43.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="v8o-HM-57V" secondAttribute="height" multiplier="1:1" id="4nd-Te-cFV"/>
-                                    </constraints>
-                                    <state key="normal" title="Button" image="2"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="image" keyPath="icon" value="2"/>
-                                        <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="2 selected"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="secondButton:" destination="BcA-Eh-CqQ" eventType="touchUpInside" id="Z44-x3-Acx"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="kBb-HM-bQ3" firstAttribute="top" secondItem="PkQ-yM-hmv" secondAttribute="top" id="993-6d-kZl"/>
-                                <constraint firstItem="kBb-HM-bQ3" firstAttribute="leading" secondItem="jFy-tD-iKg" secondAttribute="trailing" constant="33" id="C06-RT-uHc"/>
-                                <constraint firstAttribute="bottom" secondItem="At0-vs-20U" secondAttribute="bottom" id="FxV-P7-ynj"/>
-                                <constraint firstAttribute="bottom" secondItem="kBb-HM-bQ3" secondAttribute="bottom" id="Fxo-uW-NHD"/>
-                                <constraint firstAttribute="trailing" secondItem="kBb-HM-bQ3" secondAttribute="trailing" id="J0e-lM-QGv"/>
-                                <constraint firstItem="At0-vs-20U" firstAttribute="leading" secondItem="v8o-HM-57V" secondAttribute="trailing" constant="33" id="Ky4-eD-uEr"/>
-                                <constraint firstAttribute="bottom" secondItem="v8o-HM-57V" secondAttribute="bottom" id="NjM-YN-6Ry"/>
-                                <constraint firstItem="x4l-re-trG" firstAttribute="top" secondItem="PkQ-yM-hmv" secondAttribute="top" id="QXG-vm-5Fu"/>
-                                <constraint firstAttribute="bottom" secondItem="x4l-re-trG" secondAttribute="bottom" id="R56-7X-ieJ"/>
-                                <constraint firstItem="At0-vs-20U" firstAttribute="top" secondItem="PkQ-yM-hmv" secondAttribute="top" id="RvY-JD-pjO"/>
-                                <constraint firstItem="jFy-tD-iKg" firstAttribute="top" secondItem="PkQ-yM-hmv" secondAttribute="top" id="csX-ZW-xgQ"/>
-                                <constraint firstItem="v8o-HM-57V" firstAttribute="top" secondItem="PkQ-yM-hmv" secondAttribute="top" id="kR6-0g-r6n"/>
-                                <constraint firstItem="v8o-HM-57V" firstAttribute="leading" secondItem="x4l-re-trG" secondAttribute="trailing" constant="33" id="lNb-d8-RdF"/>
-                                <constraint firstItem="x4l-re-trG" firstAttribute="leading" secondItem="PkQ-yM-hmv" secondAttribute="leading" id="llC-h7-kaq"/>
-                                <constraint firstItem="jFy-tD-iKg" firstAttribute="leading" secondItem="At0-vs-20U" secondAttribute="trailing" constant="33" id="qif-Ry-Jau"/>
-                                <constraint firstAttribute="bottom" secondItem="jFy-tD-iKg" secondAttribute="bottom" id="xwe-at-Bcj"/>
-                            </constraints>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" ambiguous="YES" text="Question 3" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaR-7F-8Nt">
-                            <rect key="frame" x="16" y="177.5" width="350" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="14400" translatesAutoresizingMaskIntoConstraints="NO" id="vDD-bg-ZEy">
-                            <rect key="frame" x="14" y="208" width="354" height="1"/>
-                            <connections>
-                                <action selector="minSlider:" destination="BcA-Eh-CqQ" eventType="valueChanged" id="dKQ-uu-MHn"/>
-                            </connections>
-                        </slider>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Time: 0 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNw-LU-MRw">
-                            <rect key="frame" x="16" y="218" width="350" height="0.0"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Question 4" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9G-dU-z7j">
                             <rect key="frame" x="16" y="228" width="350" height="1.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>

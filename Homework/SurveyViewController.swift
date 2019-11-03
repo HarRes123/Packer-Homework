@@ -61,9 +61,9 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         fourthQuestion.delegate = self
         fourthQuestion.autocapitalizationType = .sentences
         
-        q1Label.text = "\nWhich subject did you spend the most time on tonight?" //drop down menu [math, science, history, english, word language, art, other -- manual input]
+        q1Label.text = "\nHow much time did you spend on homework tonight?" //add slider(?)
         q2Label.text = "How manageable was the work tonight?"
-        q3Label.text = "How much time did you spend on homework tonight?" //add slider(?)
+        q3Label.text = "Which subject did you spend the most time on tonight?" //drop down menu [math, science, history, english, word language, art, other -- manual input]
         q4Label.text = "Do you have any questions or comments? (Optional)"
         
         saveOutlet.layer.cornerRadius = 8
@@ -223,9 +223,9 @@ class SurveyViewController: UIViewController, UITextFieldDelegate {
         
         let responses = [
                          "emailAddress": Auth.auth().currentUser?.email,
-                         "firstQuestion": selectOutlet.titleLabel?.text,
+                         "firstQuestion": minDisplay.text! as String,
                          "secondQuestion": buttonResponse as String,
-                         "thirdQuestion": minDisplay.text! as String,
+                         "thirdQuestion": selectOutlet.titleLabel?.text,
                          "fourthQuestion": fourthQuestionResponse
             
         ]
